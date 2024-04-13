@@ -1,9 +1,9 @@
 <h2 align="center">
-    ──「 SlayerX Music 」──
+    ──˹ 𝐌ᴀʀɪɴ 𝐀ᴋᴜᴍᴀ ✘ 𝐌ᴜsɪᴄ ˼──
 </h2>
 
 <p align="center">
-  <img src="https://graph.org/file/e27e233e14eb9f3271885.jpg">
+  <img src="https://graph.org/file/e1687832e46bb89b4f734.jpg">
 </p>
 
 <p align="center">
@@ -15,14 +15,14 @@
 </p>
 
 <p align="center">
-  <img src="https://graph.org/file/db7653b29f9b702cb12f8.jpg">
+  <img src="https://graph.org/file/a3441f991e0a5350c338e.jpg">
 </p>
 
 <h3 align="center">
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʜᴇʀᴏᴋᴜ 」─
 </h3>
 
-<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/AtulxD/SlayerX"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/Chomuchot/Marin-akuma.git"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-black?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
 <h3 align="center">
     ─「 ᴅᴇᴩʟᴏʏ ᴏɴ ʟᴏᴄᴀʟ ʜᴏsᴛ/ ᴠᴘs 」─
