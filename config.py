@@ -7,22 +7,22 @@ from pyrogram import filters
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
-API_ID = 27018175
-API_HASH = "9726271ce98f126cebea0d4758edc88d"
+API_ID = int(getenv("API_ID"))
+API_HASH = getenv("API_HASH")
 
 # Get your token from @BotFather on Telegram.
-BOT_TOKEN = "6823089678:AAGTnvi30JPowUi-fduy3Jn8xSpAgDbpZWg"
+BOT_TOKEN = getenv("BOT_TOKEN")
 
 # Get your mongo url from cloud.mongodb.com
-MONGO_DB_URI = "mongodb+srv://chomuchot:marin@akuma.6zp9apt.mongodb.net/?retryWrites=true&w=majority&appName=Akuma"
+MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
-DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 60))
+DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 
 # Chat id of a group for logging bot's activities
-LOG_GROUP_ID = -1001985818611
+LOGGER_ID = int(getenv("LOGGER_ID", None))
 
-# Get this value from @ultron2_robot on Telegram by /id
-OWNER_ID = 5161733380
+# Get this value from @FallenxBot on Telegram by /id
+OWNER_ID = int(getenv("OWNER_ID", None))
 
 ## Fill these variables if you're deploying on heroku.
 # Your heroku app name
@@ -31,16 +31,15 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
 UPSTREAM_REPO = getenv(
-    "UPSTREAM_REPO",
-    "https://github.com/Chomuchot/Marin-akuma.git",
+    "UPSTREAM_REPO", "https://github.com/Chomuchot/Marin-akuma.git",
 )
-UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
+UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = "https://t.me/akuma_network"
-SUPPORT_GROUP = "https://t.me/akuma_bot_support"
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/SUDO_APT_UPDATE")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/NOxDISCUSSION")
 
 # Set this to True if you want the assistant to automatically leave chats after an interval
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
@@ -56,13 +55,13 @@ PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", 25))
 
 
 # Telegram audio and video file size limit (in bytes)
-TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", 104857600))
-TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 2145386496))
+TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", 5242880000))
+TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", 5242880000))
 # Checkout https://www.gbmb.org/mb-to-bytes for converting mb to bytes
 
 
-# Get your pyrogram v2 session from Replit
-STRING1 = "BQGcQ78AG5nq1UUdL5LimDhXCAJUfQ4TQuOEqRGXfM5RQlv9CVTuEP4y2yDOOmJw3E8ITUHlz8W6P8DJULhl5b21e6H-8EV_SbhyPMTkbcO_DrB6jxgcgRWpbcBGH5LYerU_BeHODWQE5D-P3b36kzf7i92C-4LXObAdTIOGr3AI6n1BlJ-TKa8gvMO1JH8zYcq4GHOSaW1HtgaA6ZGBjtM6Gp8O1KAwSU8unSX6ZzsUfzHrl6Zvo4mrYX-UZz53vdspPPGsErYZDxK5KPGN1bdvRcsl7d5bbcKu1FOwby8xc9iMv1MxabcRFuMEbzbCBOa8TU8Kucd7eYhDIwyb6yHpcC3MrwAAAAGiwXINAA"
+# Get your pyrogram v2 session from @StringFatherBot on Telegram
+STRING1 = getenv("STRING_SESSION", None)
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
@@ -78,10 +77,10 @@ confirmer = {}
 
 
 START_IMG_URL = getenv(
-    "START_IMG_URL", "https://graph.org/file/5cb22767b7c88b0961d4f.png"
+    "START_IMG_URL", "https://graph.org/file/db7653b29f9b702cb12f8.jpg"
 )
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://graph.org/file/3a3d2f651a312adc0b203.jpg"
+    "PING_IMG_URL", "https://graph.org/file/bc7f8903e60fbfafa2eb4.jpg"
 )
 PLAYLIST_IMG_URL = "https://graph.org/file/8bc4fc60d6de1047f5fa3.jpg"
 STATS_IMG_URL = "https://graph.org/file/3fe5b9ae21d09d99eea61.jpg"
@@ -103,3 +102,14 @@ def time_to_seconds(time):
 DURATION_LIMIT = int(time_to_seconds(f"{DURATION_LIMIT_MIN}:00"))
 
 
+if SUPPORT_CHANNEL:
+    if not re.match("(?:http|https)://", SUPPORT_CHANNEL):
+        raise SystemExit(
+            "[ERROR] - Your SUPPORT_CHANNEL url is wrong. Please ensure that it starts with https://"
+        )
+
+if SUPPORT_CHAT:
+    if not re.match("(?:http|https)://", SUPPORT_CHAT):
+        raise SystemExit(
+            "[ERROR] - Your SUPPORT_CHAT url is wrong. Please ensure that it starts with https://"
+        )
